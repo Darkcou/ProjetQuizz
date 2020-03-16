@@ -16,18 +16,18 @@ enum Theme {
 struct Questions{
     
     let question:String
-    let bonnereponse:String
+    let bonneReponse:String
     let mauvaiseRep1:String
     let mauvaiseRep2:String
     let mauvaiseRep3:String
     let theme:Theme
-    let reponse:Reponses
+    let information:Int
     
 }
 
-var question: [Questions] = [Questions(question: "En combien de temps s'est construite la tour Eiffel", bonnereponse: "2 ans", mauvaiseRep1: "5 ans", mauvaiseRep2: "10 ans", mauvaiseRep3: "13 ans", theme: .histoire , reponse: <#T##<<error type>>#>)]
+var question: [Questions] = [Questions(question: "En combien de temps s'est construite la tour Eiffel", bonneReponse: "2 ans", mauvaiseRep1: "5 ans", mauvaiseRep2: "10 ans", mauvaiseRep3: "13 ans", theme: .histoire , information: 1)]
 
-struct Iformation {
+struct Informations {
     
     let id:Int
     let image:String
@@ -35,9 +35,8 @@ struct Iformation {
     let lien:String
 }
 
-var iformation:[Iformation] = [Iformation(id: , image: "eiffel.jpeg", text: "blablabla \r  blablabla", lien: "www.eiffel.com")]
+var information: [Informations] = [Informations(id: 1 , image: "eiffel.jpeg", text: "blablabla \r  blablabla", lien: "www.eiffel.com")]
 
 
     
-    
-}
+
