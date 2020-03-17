@@ -38,5 +38,19 @@ struct Informations {
 var information: [Informations] = [Informations(id: 1 , image: "eiffel.jpeg", text: "blablabla \r  blablabla", lien: "www.eiffel.com")]
 
 
+struct Users{
     
+    let name:String
+    var ratio:Double
+    var badge:[Badges] = []
+}
 
+var user: [Users] = [Users(name: "UserTest", ratio: 0)]
+
+struct Badges {
+    
+    let logo:String
+    let description:String
+}
+
+var badge : [Badges] = [Badges(logo: "heart.fill", description: "Première utilisation de l'application :) !"), Badges(logo: "tortoise.fill", description: "Champion du theme Nature !")]
