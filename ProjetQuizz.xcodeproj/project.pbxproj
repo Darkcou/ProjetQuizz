@@ -14,6 +14,7 @@
 		1511A945241FC5D7007D1316 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1511A944241FC5D7007D1316 /* Preview Assets.xcassets */; };
 		1511A948241FC5D7007D1316 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1511A946241FC5D7007D1316 /* LaunchScreen.storyboard */; };
 		1511A952241FD69A007D1316 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511A951241FD69A007D1316 /* Database.swift */; };
+		647D02DF2420CBF200947FAF /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D02DE2420CBF200947FAF /* Information.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1511A947241FC5D7007D1316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1511A949241FC5D7007D1316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1511A951241FD69A007D1316 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		647D02DE2420CBF200947FAF /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				1511A93B241FC5D5007D1316 /* AppDelegate.swift */,
 				1511A93D241FC5D5007D1316 /* SceneDelegate.swift */,
 				1511A93F241FC5D5007D1316 /* ContentView.swift */,
+				647D02DE2420CBF200947FAF /* Information.swift */,
 				1511A941241FC5D7007D1316 /* Assets.xcassets */,
 				1511A946241FC5D7007D1316 /* LaunchScreen.storyboard */,
 				1511A949241FC5D7007D1316 /* Info.plist */,
@@ -152,6 +155,7 @@
 				1511A93C241FC5D5007D1316 /* AppDelegate.swift in Sources */,
 				1511A93E241FC5D5007D1316 /* SceneDelegate.swift in Sources */,
 				1511A952241FD69A007D1316 /* Database.swift in Sources */,
+				647D02DF2420CBF200947FAF /* Information.swift in Sources */,
 				1511A940241FC5D5007D1316 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
