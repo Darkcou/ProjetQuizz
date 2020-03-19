@@ -14,6 +14,7 @@
 		1511A945241FC5D7007D1316 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1511A944241FC5D7007D1316 /* Preview Assets.xcassets */; };
 		1511A948241FC5D7007D1316 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1511A946241FC5D7007D1316 /* LaunchScreen.storyboard */; };
 		1511A952241FD69A007D1316 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511A951241FD69A007D1316 /* Database.swift */; };
+		4576186A2420C9E70044A2EC /* Questionnaire_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457618692420C9E70044A2EC /* Questionnaire_View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1511A947241FC5D7007D1316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1511A949241FC5D7007D1316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1511A951241FD69A007D1316 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		457618692420C9E70044A2EC /* Questionnaire_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questionnaire_View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				1511A951241FD69A007D1316 /* Database.swift */,
+				457618692420C9E70044A2EC /* Questionnaire_View.swift */,
 				1511A93B241FC5D5007D1316 /* AppDelegate.swift */,
 				1511A93D241FC5D5007D1316 /* SceneDelegate.swift */,
 				1511A93F241FC5D5007D1316 /* ContentView.swift */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1511A93C241FC5D5007D1316 /* AppDelegate.swift in Sources */,
+				4576186A2420C9E70044A2EC /* Questionnaire_View.swift in Sources */,
 				1511A93E241FC5D5007D1316 /* SceneDelegate.swift in Sources */,
 				1511A952241FD69A007D1316 /* Database.swift in Sources */,
 				1511A940241FC5D5007D1316 /* ContentView.swift in Sources */,
