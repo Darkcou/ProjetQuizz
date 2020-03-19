@@ -23,6 +23,7 @@ enum Theme: String, CaseIterable {
     case star = "Star"
     case divers = "Divers"
 }
+
 struct ThemeSelect {
     let name:String
     let type:Theme

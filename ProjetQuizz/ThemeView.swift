@@ -25,7 +25,13 @@ struct ThemeView: View {
                     Spacer().frame(width:10)
                     
                     HStack{
-                        Image("Creer").resizable().foregroundColor(Color.blue).frame(width:40, height: 40).padding().frame(width:50, height: 50)
+//                       Button(action: {
+//                        NavigationView(content:Questionnaire_View())
+//                       }) {
+//                Image("Creer").resizable().foregroundColor(Color.blue).frame(width:40, height: 40).padding().frame(width:50, height: 50)
+//                            
+//                            }.buttonStyle(PlainButtonStyle())
+                        
                         Text("Proposer une question !").foregroundColor(Color.gray)
                         
                     }.padding(.horizontal)  .background(Color.white).border(Color.gray, width: 2).cornerRadius(10)
