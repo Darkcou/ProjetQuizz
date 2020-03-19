@@ -44,6 +44,7 @@ struct test: View {
             }
             .padding().frame(width:370,height:140)
             .background(Color.blue)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
             .cornerRadius(10)
             
             Spacer()
@@ -74,6 +75,7 @@ struct test: View {
                 }
             }.padding().frame(width:370,height:270)
                 .background(Color.blue)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .cornerRadius(10)
             Spacer().frame(height:30)
         }.foregroundColor(.white)
@@ -93,7 +95,7 @@ struct test_Previews: PreviewProvider {
 struct StatsTextView : View {
     var name:String
     var body : some View {
-        Text(name).padding().frame(width:370,height:55).background(Color.gray).cornerRadius(10)
+        Text(name).padding().frame(width:370,height:55).background(Color.gray).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/).cornerRadius(10)
     }
 }
 

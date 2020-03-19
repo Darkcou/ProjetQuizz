@@ -67,7 +67,8 @@ struct Questionnaire_View: View {
             )
                 .frame(width:150,height:50)
                 .background(Color.blue)
-                .cornerRadius(20)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .cornerRadius(10)
                 .padding()
             
             
@@ -84,7 +85,8 @@ struct Questionnaire_View: View {
             )
                 .frame(width:150,height:50)
                 .background(Color.blue)
-                .cornerRadius(20)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .cornerRadius(10)
             
         }
     }
@@ -106,6 +108,7 @@ struct ButtonStyle: View {
             )
                 .frame(width:300,height:50)
                 .background(Color.blue)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .cornerRadius(20)
                 .padding(20)
 

@@ -55,7 +55,7 @@ struct ThemeView: View {
                 }
                 
                 Text("Sélectionner un ou plusieurs themes !").foregroundColor(Color.white)
-            }.background(Color.blue).cornerRadius(10)
+            }.background(Color.blue).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/).cornerRadius(10)
             
             Spacer().frame(height:30)
             
@@ -100,7 +100,7 @@ struct ThemeView: View {
                     }
                     
                 }.padding(.all)
-            }.border(Color.black, width: 2).cornerRadius(5)
+            }.border(Color.black, width: 2).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/).cornerRadius(5)
             
             Spacer().frame(height: 30)
             
@@ -110,10 +110,10 @@ struct ThemeView: View {
                     
                     Text("Thème(s)")
                     Text("séléctionné")
-                }.padding(.horizontal).background(Color.blue).cornerRadius(10).foregroundColor(Color.white)
+                }.padding(.horizontal).background(Color.blue).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/).cornerRadius(10).foregroundColor(Color.white)
                 
                 Spacer().frame(width: 100)
-                Text("Go").padding(.all).background(Color.green).border(Color.green, width: 4).cornerRadius(100).foregroundColor(Color.white)
+                Text("Go").padding(.all).background(Color.green).border(Color.green, width: 4) .cornerRadius(100).foregroundColor(Color.white)
             }
             
         }
