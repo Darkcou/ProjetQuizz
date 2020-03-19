@@ -16,6 +16,7 @@
 		1511A952241FD69A007D1316 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511A951241FD69A007D1316 /* Database.swift */; };
 		1511A97824239FF0007D1316 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511A97724239FF0007D1316 /* ThemeView.swift */; };
 		647D02DF2420CBF200947FAF /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D02DE2420CBF200947FAF /* Information.swift */; };
+		647D02E324238C6900947FAF /* userProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D02E224238C6900947FAF /* userProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1511A951241FD69A007D1316 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		1511A97724239FF0007D1316 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		647D02DE2420CBF200947FAF /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
+		647D02E224238C6900947FAF /* userProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				1511A951241FD69A007D1316 /* Database.swift */,
 				1511A97724239FF0007D1316 /* ThemeView.swift */,
+				647D02E224238C6900947FAF /* userProfile.swift */,
 				1511A93B241FC5D5007D1316 /* AppDelegate.swift */,
 				1511A93D241FC5D5007D1316 /* SceneDelegate.swift */,
 				1511A93F241FC5D5007D1316 /* ContentView.swift */,
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				647D02E324238C6900947FAF /* userProfile.swift in Sources */,
 				1511A93C241FC5D5007D1316 /* AppDelegate.swift in Sources */,
 				1511A93E241FC5D5007D1316 /* SceneDelegate.swift in Sources */,
 				1511A952241FD69A007D1316 /* Database.swift in Sources */,
