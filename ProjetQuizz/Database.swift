@@ -8,9 +8,36 @@
 
 import Foundation
 
-enum Theme {
+enum Theme: String, CaseIterable {
     
-    case cinema , art , musique , jeux , science , lecture , sport , histoire , voyage , nature , star , divers
+    case cinema = "Cinema"
+    case art = "Art"
+    case musique = "Musique"
+    case jeux = "Jeux"
+    case science = "Science"
+    case lecture = "Lecture"
+    case sport = "Sport"
+    case histoire = "Histoire"
+    case voyage = "Voyage"
+    case nature = "Nature"
+    case star = "Star"
+    case divers = "Divers"
+}
+struct ThemeSelect {
+    let name:String
+    let type:Theme
+    var isSelect:Bool = false
+    
+    init(theme: Theme) {
+        self.name = theme.rawValue
+        self.type = theme
+    }
+}
+func allThemes()->[ThemeSelect]{
+    return Theme.allCases.map{ theme in ThemeSelect.init(theme: theme)
+        
+    }
+    
 }
 
 struct Questions{
