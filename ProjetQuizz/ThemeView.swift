@@ -14,6 +14,12 @@ struct ThemeView: View {
     @State var loginView = false
     @State var questionView = false
     @State var creerView = false
+    @State var themeSelect = 0
+    @State var themeAll:[ThemeSelect] = ThemeAll()
+    @State var themeLigne:[String] = []
+    func ThisColor(isSelect:Bool, t:Color = Color.white, f:Color = Color.black) -> Color {
+        return isSelect == true ? t : f
+    }
     
     var body: some View {
         
@@ -74,45 +80,33 @@ struct ThemeView: View {
                 
                 VStack{
                     
-                    Text("2/15 theme selectionné")
+                    Text("\(themeSelect)/15 theme selectionné")
                     
-                    VStack{
-                        
-                        HStack{
-                            VStack{Image("Science").resizable().frame(width:65, height: 65)
-                                Text("Science").font(.footnote)
-                                
-                            }
-                            
-                            Spacer().frame(width:30)
-                            Image("Art").resizable().frame(width:65, height: 65)
-                            Spacer().frame(width:30)
-                            Image("Sport").resizable().frame(width:65, height: 65)
-                        }
-                        HStack{
-                            Image("Cinema").resizable().frame(width:65, height: 65)
-                            Spacer().frame(width:30)
-                            Image("Jeux").resizable().frame(width:65, height: 65)
-                            Spacer().frame(width:30)
-                            Image("Musique").resizable().frame(width:65, height: 65)
-                        }
-                        HStack{
-                            Image("Star").resizable().frame(width:65, height: 65)
-                            Spacer().frame(width:30)
-                            
-                            Image("Histoire").resizable().frame(width:65, height: 65)
-                            Spacer().frame(width:30)
-                            Image("Nature").resizable().frame(width:65, height: 65)
-                        }
-                        HStack{
-                            Image("Voyage").resizable().frame(width:65, height: 65)
-                            Spacer().frame(width:30)
-                            Image("Lecture").resizable().frame(width:65, height: 65)
-                            Spacer().frame(width:30)
-                            Image("Divers").resizable().frame(width:65, height: 65)
-                        }
-                        
-                    }.padding(.all)
+//                    VStack{
+//                        
+//                        
+//                        for theme in themeAll {
+//                            themeLigne.append(theme.name)
+//                            if self.themeLigne.count == 3{
+//                                HStack{
+//                                    for i in 0...2{
+//                                        VStack{Image(theme.name).resizable().frame(width:65, height: 65)
+//                                            Text(theme.name).font(.footnote)}.foregroundColor(self.ThisColor(isSelect: theme.isSelect)).background(self.ThisColor(isSelect: theme.isSelect,t:Color.blue , f: Color.white)).cornerRadius(10)
+//                                        
+//                                        if i != 2 { Spacer().frame(width:30)
+//                                            
+//                                        }
+//                                    }
+//                                }
+//                                themeLigne = []
+//                           }
+//                            
+//                            
+//                        }
+//                        
+//                        
+//                        
+//                    }.padding(.all)
                 }.border(Color.black, width: 2).cornerRadius(5)
                 
                 Spacer().frame(height: 30)
@@ -136,7 +130,7 @@ struct ThemeView: View {
                     }.buttonStyle(PlainButtonStyle())
                 }
                 
-            } 
+            }
         }
     }
 }

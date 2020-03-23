@@ -24,7 +24,8 @@ enum Theme: String, CaseIterable {
     case divers = "Divers"
 }
 
-struct ThemeSelect {
+struct ThemeSelect: Identifiable {
+    let id = UUID()
     let name:String
     let type:Theme
     var isSelect:Bool = false
@@ -34,11 +35,9 @@ struct ThemeSelect {
         self.type = theme
     }
 }
-func allThemes()->[ThemeSelect]{
-    return Theme.allCases.map{ theme in ThemeSelect.init(theme: theme)
-        
-    }
-    
+
+func ThemeAll()->[ThemeSelect]{
+    return Theme.allCases.map{ theme in ThemeSelect.init(theme: theme)}
 }
 
 struct Questions{
