@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CreerQuestionView: View {
     var body: some View {
         Text("Hello, World!")
     }
@@ -17,6 +17,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CreerQuestionView()
     }
 }

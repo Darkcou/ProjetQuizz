@@ -34,7 +34,7 @@ struct ThemeView: View {
                         
                         HStack{
                             
-                            NavigationLink(destination: Questionnaire_View(), isActive: $creerView ){EmptyView()}
+                            NavigationLink(destination: CreerQuestionView(), isActive: $creerView ){EmptyView()}
                             
                             Button(action: {
                                 self.creerView = false
@@ -82,31 +82,31 @@ struct ThemeView: View {
                     
                     Text("\(themeSelect)/15 theme selectionné")
                     
-//                    VStack{
-//                        
-//                        
-//                        for theme in themeAll {
-//                            themeLigne.append(theme.name)
-//                            if self.themeLigne.count == 3{
-//                                HStack{
-//                                    for i in 0...2{
-//                                        VStack{Image(theme.name).resizable().frame(width:65, height: 65)
-//                                            Text(theme.name).font(.footnote)}.foregroundColor(self.ThisColor(isSelect: theme.isSelect)).background(self.ThisColor(isSelect: theme.isSelect,t:Color.blue , f: Color.white)).cornerRadius(10)
-//                                        
-//                                        if i != 2 { Spacer().frame(width:30)
-//                                            
-//                                        }
-//                                    }
-//                                }
-//                                themeLigne = []
-//                           }
-//                            
-//                            
-//                        }
-//                        
-//                        
-//                        
-//                    }.padding(.all)
+                    VStack{
+
+
+                        ForEach(themeAll) { theme in
+                            themeLigne.append(theme.name)
+                            if self.themeLigne.count == 3{
+                                HStack{
+                                    for i in 0...2{
+                                        VStack{Image(theme.name).resizable().frame(width:65, height: 65)
+                                            Text(theme.name).font(.footnote)}.foregroundColor(self.ThisColor(isSelect: theme.isSelect)).background(self.ThisColor(isSelect: theme.isSelect,t:Color.blue , f: Color.white)).cornerRadius(10)
+
+                                        if i != 2 { Spacer().frame(width:30)
+
+                                        }
+                                    }
+                                }
+                                themeLigne = []
+                            }
+
+
+                        }
+
+
+
+                    }.padding(.all)
                 }.border(Color.black, width: 2).cornerRadius(5)
                 
                 Spacer().frame(height: 30)
