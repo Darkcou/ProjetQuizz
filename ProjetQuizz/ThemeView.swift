@@ -23,6 +23,7 @@ struct ThemeView: View {
     var body: some View {
         
         NavigationView{
+
             VStack{
                 
                 VStack{
@@ -82,40 +83,7 @@ struct ThemeView: View {
                     Text("\(themeSelect)/15 theme selectionné")
                     
                     VStack{
-                        
-                        ForEach(themeList) { themeLine in
-                            HStack {
-                                ForEach(0..<themeLine.themes.count, id: \.self){ idx in
-                                    Button(action: {
-                                        if themeLine.themes[idx].isSelect == true {
-//                                            themeLine.themes[idx].IsSelect(newSelect: false)
-//                                        }
-//                                        else { themeLine.themes[idx].IsSelect(newSelect: true)
-                                            
-                                        }
-                                        self.themeSelect = themeLine.NSelect()
-                                        
-                                    }) {
-                                        VStack {
-                                            Image(themeLine.themes[idx].name).resizable().frame(width:65, height: 65)
-                                            Text(themeLine.themes[idx].name)
-                                                .font(.footnote)
-                                                .foregroundColor(self.ThisColor(isSelect: themeLine.themes[idx].isSelect))
-                                            
-                                            if idx % 2 != 0 {
-                                                Spacer().frame(width:30)
-                                            }
-                                        }.background(self.ThisColor(isSelect: themeLine.themes[idx].isSelect,t:Color.blue , f: Color.white)).cornerRadius(10)
-                                        
-                                        
-                                    }
-                                    
-                                }
-                            }
-                        }
-                        
-                        
-                        
+                        themeListView()
                         
                     }.padding(.all)
                 }.border(Color.black, width: 2).cornerRadius(5)
@@ -124,13 +92,13 @@ struct ThemeView: View {
                 
                 HStack{
                     
-                        
-                        VStack{
-                            
-                            Text("Thème(s)")
-                            Text("séléctionné")
-                        }.padding(.horizontal).background(Color.blue).cornerRadius(10).foregroundColor(Color.white)
-                        
+
+                    VStack{
+
+                        Text("Thème(s)")
+                        Text("séléctionné")
+                    }.padding(.horizontal).background(Color.blue).cornerRadius(10).foregroundColor(Color.white)
+
                     
                     
                     
@@ -147,6 +115,44 @@ struct ThemeView: View {
                 
             }
         }
+        
+    }
+
+    func themeListView() -> some View {
+        ForEach(0..<themeList.count, id: \.self){ idx in
+            self.subthemeListView(themeLineIdx: idx, themeLine: self.themeList[idx])
+        }
+    }
+
+    func subthemeListView(themeLineIdx: Int, themeLine: ThemeLine) -> some View {
+        HStack {
+            ForEach(0..<themeLine.themes.count, id: \.self){ idx in
+                self.themeLineView(themeLineIdx: themeLineIdx, themeSelect: themeLine.themes[idx], idx: idx)
+            }
+        }
+    }
+
+    func themeLineView(themeLineIdx: Int, themeSelect: ThemeSelect, idx: Int) -> some View {
+        Button(action: {
+            self.toggleThemeSelection(isSelected: !themeSelect.isSelect, themeLineIdx: themeLineIdx, themeSelectIdx: idx)
+
+
+        }) {
+            VStack {
+                Image(themeSelect.name).resizable().frame(width:65, height: 65)
+                Text(themeSelect.name)
+                    .font(.footnote)
+                    .foregroundColor(self.ThisColor(isSelect: themeSelect.isSelect))
+
+                if idx % 2 != 0 {
+                    Spacer().frame(width:30)
+                }
+            }.background(self.ThisColor(isSelect: themeSelect.isSelect,t:Color.blue , f: Color.white)).cornerRadius(10)
+        }
+    }
+
+    func toggleThemeSelection(isSelected: Bool, themeLineIdx: Int, themeSelectIdx: Int) {
+        themeList[themeLineIdx].themes[themeSelectIdx].isSelect = isSelected
     }
 }
 
