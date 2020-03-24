@@ -88,13 +88,13 @@ struct ThemeView: View {
                                 ForEach(0..<themeLine.themes.count, id: \.self){ idx in
                                     Button(action: {
                                         if themeLine.themes[idx].isSelect == true {
-                                            themeLine.themes[idx].IsSelect(newSelect: false)
-                                        }
-                                        else { themeLine.themes[idx].IsSelect(newSelect: true)
+//                                            themeLine.themes[idx].IsSelect(newSelect: false)
+//                                        }
+//                                        else { themeLine.themes[idx].IsSelect(newSelect: true)
                                             
                                         }
                                         self.themeSelect = themeLine.NSelect()
-                                       
+                                        
                                     }) {
                                         VStack {
                                             Image(themeLine.themes[idx].name).resizable().frame(width:65, height: 65)
@@ -103,9 +103,9 @@ struct ThemeView: View {
                                                 .foregroundColor(self.ThisColor(isSelect: themeLine.themes[idx].isSelect))
                                             
                                             if idx % 2 != 0 {
-                                                                               Spacer().frame(width:30)
-                                                                               }
-                                            }.background(self.ThisColor(isSelect: themeLine.themes[idx].isSelect,t:Color.blue , f: Color.white)).cornerRadius(10)
+                                                Spacer().frame(width:30)
+                                            }
+                                        }.background(self.ThisColor(isSelect: themeLine.themes[idx].isSelect,t:Color.blue , f: Color.white)).cornerRadius(10)
                                         
                                         
                                     }
@@ -123,9 +123,7 @@ struct ThemeView: View {
                 Spacer().frame(height: 30)
                 
                 HStack{
-                    Button(action: {
-                        ForEach(themeList) { themeLine in themeLine.AllClick()}
-                    }) {
+                    
                         
                         VStack{
                             
@@ -133,7 +131,7 @@ struct ThemeView: View {
                             Text("séléctionné")
                         }.padding(.horizontal).background(Color.blue).cornerRadius(10).foregroundColor(Color.white)
                         
-                    }
+                    
                     
                     
                     Spacer().frame(width: 100)
