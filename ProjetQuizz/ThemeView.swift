@@ -15,8 +15,7 @@ struct ThemeView: View {
     @State var questionView = false
     @State var creerView = false
     @State var themeSelect = 0
-    @State var themeAll:[ThemeSelect] = ThemeAll()
-    @State var themeLigne:[String] = []
+    @State var themeList:[ThemeLine] = ThemeList()
     func ThisColor(isSelect:Bool, t:Color = Color.white, f:Color = Color.black) -> Color {
         return isSelect == true ? t : f
     }
@@ -83,41 +82,59 @@ struct ThemeView: View {
                     Text("\(themeSelect)/15 theme selectionné")
                     
                     VStack{
-
-
-                        ForEach(themeAll) { theme in
-                            themeLigne.append(theme.name)
-                            if self.themeLigne.count == 3{
-                                HStack{
-                                    for i in 0...2{
-                                        VStack{Image(theme.name).resizable().frame(width:65, height: 65)
-                                            Text(theme.name).font(.footnote)}.foregroundColor(self.ThisColor(isSelect: theme.isSelect)).background(self.ThisColor(isSelect: theme.isSelect,t:Color.blue , f: Color.white)).cornerRadius(10)
-
-                                        if i != 2 { Spacer().frame(width:30)
-
+                        
+                        ForEach(themeList) { themeLine in
+                            HStack {
+                                ForEach(0..<themeLine.themes.count, id: \.self){ idx in
+                                    Button(action: {
+                                        if themeLine.themes[idx].isSelect == true {
+                                            themeLine.themes[idx].IsSelect(newSelect: false)
                                         }
+                                        else { themeLine.themes[idx].IsSelect(newSelect: true)
+                                            
+                                        }
+                                        self.themeSelect = themeLine.NSelect()
+                                       
+                                    }) {
+                                        VStack {
+                                            Image(themeLine.themes[idx].name).resizable().frame(width:65, height: 65)
+                                            Text(themeLine.themes[idx].name)
+                                                .font(.footnote)
+                                                .foregroundColor(self.ThisColor(isSelect: themeLine.themes[idx].isSelect))
+                                            
+                                            if idx % 2 != 0 {
+                                                                               Spacer().frame(width:30)
+                                                                               }
+                                            }.background(self.ThisColor(isSelect: themeLine.themes[idx].isSelect,t:Color.blue , f: Color.white)).cornerRadius(10)
+                                        
+                                        
                                     }
+                                    
                                 }
-                                themeLigne = []
                             }
-
-
                         }
-
-
-
+                        
+                        
+                        
+                        
                     }.padding(.all)
                 }.border(Color.black, width: 2).cornerRadius(5)
                 
                 Spacer().frame(height: 30)
                 
                 HStack{
-                    
-                    VStack{
+                    Button(action: {
+                        ForEach(themeList) { themeLine in themeLine.AllClick()}
+                    }) {
                         
-                        Text("Thème(s)")
-                        Text("séléctionné")
-                    }.padding(.horizontal).background(Color.blue).cornerRadius(10).foregroundColor(Color.white)
+                        VStack{
+                            
+                            Text("Thème(s)")
+                            Text("séléctionné")
+                        }.padding(.horizontal).background(Color.blue).cornerRadius(10).foregroundColor(Color.white)
+                        
+                    }
+                    
                     
                     Spacer().frame(width: 100)
                     NavigationLink(destination: Questionnaire_View(), isActive: $questionView ){EmptyView()}

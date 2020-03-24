@@ -34,10 +34,53 @@ struct ThemeSelect: Identifiable {
         self.name = theme.rawValue
         self.type = theme
     }
+    
+    mutating func IsSelect(newSelect:Bool){
+        self.isSelect = newSelect
+    }
 }
 
-func ThemeAll()->[ThemeSelect]{
-    return Theme.allCases.map{ theme in ThemeSelect.init(theme: theme)}
+func ThemeList()->[ThemeLine]{
+    let themeAll = Theme.allCases.map{ theme in ThemeSelect.init(theme: theme)}
+    var themeLine:[ThemeSelect] = []
+    var themeListing:[ThemeLine] = []
+    
+    for theme in themeAll
+    {
+        themeLine.append(theme)
+        if(themeLine.count) % 3 == 0{
+            themeListing.append(ThemeLine(themes: themeLine))
+            themeLine.removeAll()
+        }
+    }
+    return themeListing
+}
+
+struct ThemeLine: Identifiable {
+    let id = UUID()
+    var themes: [ThemeSelect]
+    
+    func NSelect() -> Int {
+        var nSelect = 0
+        for theme in self.themes{
+            if theme.isSelect == true {
+                nSelect += 1
+            }
+        }
+        return nSelect
+    }
+    
+    func AllClick() {
+        for theme in self.themes{
+        if theme.isSelect == true {
+            theme.IsSelect(newSelect: false)
+        }
+        else{
+            theme.IsSelect(newSelect: true)
+            }
+        }
+    }
+    
 }
 
 struct Questions{
