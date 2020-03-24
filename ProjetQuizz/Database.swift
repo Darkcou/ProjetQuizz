@@ -70,13 +70,13 @@ struct ThemeLine: Identifiable {
         return nSelect
     }
     
-    func AllClick() {
-        for theme in self.themes{
-        if theme.isSelect == true {
-            theme.IsSelect(newSelect: false)
-        }
-        else{
-            theme.IsSelect(newSelect: true)
+    mutating func AllClick() {
+        for idx in 0..<themes.count {
+            if(themes[idx].isSelect == true){
+                themes[idx].isSelect = false
+            }
+            else{
+                themes[idx].isSelect = true
             }
         }
     }
