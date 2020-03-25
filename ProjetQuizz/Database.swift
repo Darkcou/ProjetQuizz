@@ -210,7 +210,7 @@ let question : [Questions] = [
     Questions(sentence: "Quelle religieuse a reçu le prix Nobel de la paix en 1979 ?", responses: [
 
         Response(sentence: "Mère Thérésa", isGoodResponse: true),
-        Response(sentence: "", isGoodResponse: false),
+        Response(sentence: "Hildegarde de Bin", isGoodResponse: false),
         Response(sentence: "", isGoodResponse: false),
         Response(sentence: "", isGoodResponse: false)
     ], theme: .star, information:
