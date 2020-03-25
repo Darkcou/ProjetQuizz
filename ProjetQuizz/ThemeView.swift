@@ -80,7 +80,7 @@ struct ThemeView: View {
                 
                 VStack{
                     
-                    Text("\(themeSelect)/15 theme selectionné")
+                    Text("\(themeSelect)/12 theme selectionné")
                     
                     VStack{
                         themeListView()
@@ -93,9 +93,11 @@ struct ThemeView: View {
                 HStack{
                     
                     Button(action: {
+                        self.themeSelect = 0
                         for idx in 0..<self.themeList.count {
                             self.themeList[idx].AllClick()
-                            self.themeSelect = self.themeList[idx].NSelect()
+                            
+                            self.themeSelect = self.themeSelect + self.themeList[idx].NSelect()
                         }
                         
                     }) {
