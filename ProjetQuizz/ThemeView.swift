@@ -16,6 +16,7 @@ struct ThemeView: View {
     @State var creerView = false
     @State var nThemeSelect = 0
     @State var themeList:[ThemeLine] = ThemeList()
+    @State var infoQuestion:[Theme]=[]
     func ThisColor(isSelect:Bool, t:Color = Color.white, f:Color = Color.black) -> Color {
         return isSelect == true ? t : f
     }
@@ -89,7 +90,7 @@ struct ThemeView: View {
                 }.border(Color.black, width: 2).cornerRadius(5)
                 
                 Spacer().frame(height: 30)
-                
+                Text("")
                 HStack{
                     
                     Button(action: {
@@ -149,10 +150,13 @@ struct ThemeView: View {
             self.toggleThemeSelection(isSelected: !themeSelect.isSelect, themeLineIdx: themeLineIdx, themeSelectIdx: idx)
             if themeSelect.isSelect != true{
                 self.nThemeSelect = self.nThemeSelect + 1
-                
+                self.infoQuestion.append(themeSelect.type)
             }
             else{
                 self.nThemeSelect = self.nThemeSelect - 1
+                for idx in 0..<self.infoQuestion.count {
+                    self.infoQuestion.remove(at: idx )
+                }
             }
             
         }) {
