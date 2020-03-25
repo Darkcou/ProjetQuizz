@@ -95,6 +95,7 @@ struct Questionnaire_View: View {
                             self.score += 100
                             self.win = false
                             self.questionPosée = question.randomElement()!
+                            
                         }else{
                             self.questionPosée = question.randomElement()!
                         }

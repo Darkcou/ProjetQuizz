@@ -8,6 +8,8 @@
 
 import Foundation
 
+/************************ Thème ********************************************/
+
 enum Theme: String, CaseIterable {
     
     case cinema = "Cinema"
@@ -82,6 +84,8 @@ struct ThemeLine: Identifiable {
     }
     
 }
+
+/************************ Questions ********************************************/
 struct Questions {
     let sentence : String
     let responses : [Response]
@@ -239,6 +243,7 @@ let question : [Questions] = [
 
 ]
 
+/************************ User ********************************************/
 
 struct Users{
     
