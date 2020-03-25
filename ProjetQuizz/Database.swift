@@ -192,7 +192,7 @@ let question : [Questions] = [
         Response(sentence: "Le cubisme", isGoodResponse: false),
         Response(sentence: "L'impressionisme", isGoodResponse: false)
     ], theme: .art, information:
-            Informations(image: "",
+            Informations(image: "indochine.jpeg",
                          text: "le surréalisme",
                          lien: "")),
     
@@ -203,8 +203,8 @@ let question : [Questions] = [
         Response(sentence: "Le plat", isGoodResponse: false),
         Response(sentence: "Le palet", isGoodResponse: false)
     ], theme: .sport, information:
-            Informations(image: "",
-                         text: "La rondelle",
+            Informations(image: "hockey.jpeg",
+                         text: "La rondelle au Canada, Le puck en  en anglais et Le palet en France",
                          lien: "")),
     
     Questions(sentence: "Quelle religieuse a reçu le prix Nobel de la paix en 1979 ?", responses: [
@@ -214,7 +214,7 @@ let question : [Questions] = [
         Response(sentence: "Mère Geneviève", isGoodResponse: false),
         Response(sentence: "Sœur Marie-Odile", isGoodResponse: false)
     ], theme: .star, information:
-            Informations(image: "",
+            Informations(image: "theresa.jpeg",
                          text: "",
                          lien: "")),
     
@@ -225,7 +225,7 @@ let question : [Questions] = [
         Response(sentence: "Le Jägermeister", isGoodResponse: false),
         Response(sentence: "Le Heineken", isGoodResponse: false)
     ], theme: .divers, information:
-            Informations(image: "",
+            Informations(image: "merises.jpeg",
                          text: "",
                          lien: "")),
     
@@ -236,9 +236,9 @@ let question : [Questions] = [
         Response(sentence: "Hannibal", isGoodResponse: false),
         Response(sentence: "Starsky", isGoodResponse: false)
     ], theme: .lecture, information:
-            Informations(image: "",
+            Informations(image: "miserables.jpeg",
                          text: "",
-                         lien: "")),
+                         lien: "https://fr.wikipedia.org/wiki/Les_Misérables")),
     
     Questions(sentence: "Quelle planète a été déchue de son rang le 24 août 2006 ?", responses: [
 
@@ -247,7 +247,7 @@ let question : [Questions] = [
         Response(sentence: "Ganymède", isGoodResponse: false),
         Response(sentence: "Amalthée", isGoodResponse: false)
     ], theme: .science, information:
-            Informations(image: "",
+            Informations(image: "pluton.jpeg",
                          text: "",
                          lien: "")),
 
