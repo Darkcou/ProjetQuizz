@@ -9,24 +9,34 @@
 import SwiftUI
 
 struct InformationScreen: View {
+    
+    let info:Informations
     var body: some View {
         ZStack{
             VStack{
-                HStack{                Image(systemName:"chevron.left").font(.largeTitle)
-                    Text("retour\rquiz")
-                    Spacer()
-                }
                 
                 Spacer().frame(height:50)
-                Image(information[0].image)
+                Image(info.image)
                 
                 Spacer().frame(height:100)
-                Text(information[0].text)
+                Text(info.text)
                 
                 Spacer()
-                Text(information[0].lien)
-                    .padding()
+
+                Button(
+                    action: {
+//                        self.info.lien
+                },
+                    label: {
+                        
+                        Text("Visiter le site officiel")
+                            .bold()
+                            .foregroundColor(Color.white)
+                }
+                )
+                    .frame(width:200,height:50)
                     .background(Color.blue)
+                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .cornerRadius(10)
                 
                 Spacer().frame(height: 100)
@@ -37,6 +47,6 @@ struct InformationScreen: View {
 
 struct InformationScreen_Previews: PreviewProvider {
     static var previews: some View {
-        InformationScreen()
+        InformationScreen(info: Informations(image: "", text: "", lien: ""))
     }
 }
