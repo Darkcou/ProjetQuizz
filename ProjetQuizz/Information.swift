@@ -13,10 +13,10 @@ struct InformationScreen: View {
     let info:Informations
     var body: some View {
         ZStack{
-            VStack{
+            VStack(alignment: .center){
                 
                 Spacer().frame(height:50)
-                Image(info.image)
+                Image(info.image).resizable().frame(width:250, height: 250)
                 
                 Spacer().frame(height:100)
                 Text(info.text)

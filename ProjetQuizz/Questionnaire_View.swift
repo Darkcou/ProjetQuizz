@@ -20,90 +20,56 @@ struct Questionnaire_View: View {
     @State var infoView = false
     
     var body: some View {
-        
-        NavigationView{
+                    
+        VStack{
+            Text("Score:\(score)")
+            Spacer()
+            Text("Question \(numQuestion)")
+                .font(.system(Font.TextStyle.largeTitle))
+                .padding()
             
-            VStack{
-                Text("Score:\(score)")
-                Spacer()
-                Text("Question \(numQuestion)")
-                    .font(.system(Font.TextStyle.largeTitle))
-                    .padding()
+            Spacer()
+            Text(questionPosée.sentence)
+                .font(.system(Font.TextStyle.title))
+                .bold()
+            
+            
+            Spacer()
+            
+            ForEach(questionPosée.responses.shuffled()) { reponse in
                 
-                Spacer()
-                Text(questionPosée.sentence)
-                    .font(.system(Font.TextStyle.title))
-                    .bold()
-                    
                 
-                Spacer()
-                
-                ForEach(questionPosée.responses.shuffled()) { reponse in
+                ButtonStyle(action: {
                     
-                    
-                    ButtonStyle(action: {
-                        
-                        if reponse.isGoodResponse == true{
-                            self.win = true
-                        }else{
-                            self.win = false
-                        }
-                        
-                    }, text: reponse.sentence)
-                    
-                    
-                }
-                
-                Spacer()
-                
-                HStack{
-                    
-                    NavigationLink(destination: InformationScreen(info: questionPosée.information), isActive: $infoView ){
-                        
-                        EmptyView()
-                        
+                    if reponse.isGoodResponse == true{
+                        self.win = true
+                    }else{
+                        self.win = false
                     }
                     
-                    Button(
-                        action: {
-                            self.infoView = true
-                            
-                    },
-                        label: {
-                            
-                            Text("En savoir plus")
-                                .bold()
-                                .foregroundColor(Color.white)
-                    }
-                    )
-                        .frame(width:150,height:50)
-                        .background(Color.gray)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(10)
-                        .padding()
-                        .buttonStyle(PlainButtonStyle())
+                }, text: reponse.sentence)
+                
+                
+            }
+            
+            Spacer()
+            
+            HStack{
+                
+                NavigationLink(destination: InformationScreen(info: questionPosée.information), isActive: $infoView ){
+                    
+                    EmptyView()
                     
                 }
-                
                 
                 Button(
                     action: {
-                        
-                        self.numQuestion += 1
-                        if self.win == true {
-                            
-                            self.score += 100
-                            self.win = false
-                            self.questionPosée = question.randomElement()!
-                        }else{
-                            self.questionPosée = question.randomElement()!
-                        }
-                         
+                        self.infoView = true
                         
                 },
                     label: {
                         
-                        Text("Suivant")
+                        Text("En savoir plus")
                             .bold()
                             .foregroundColor(Color.white)
                 }
@@ -112,9 +78,43 @@ struct Questionnaire_View: View {
                     .background(Color.gray)
                     .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .cornerRadius(10)
+                    .padding()
+                    .buttonStyle(PlainButtonStyle())
                 
             }
+            
+            
+            Button(
+                action: {
+                    
+                    self.numQuestion += 1
+                    if self.win == true {
+                        
+                        self.score += 100
+                        self.win = false
+                        self.questionPosée = question.randomElement()!
+                        
+                    }else{
+                        self.questionPosée = question.randomElement()!
+                    }
+                    
+                    
+            },
+                label: {
+                    
+                    Text("Suivant")
+                        .bold()
+                        .foregroundColor(Color.white)
+            }
+            )
+                .frame(width:150,height:50)
+                .background(Color.gray)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .cornerRadius(10)
+            
         }
+        .navigationBarTitle("Question",displayMode: .inline)
+        
     }
 }
 struct ButtonStyle: View {
