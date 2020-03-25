@@ -17,16 +17,26 @@ struct CreerQuestionView: View {
     @State private var repnseErronee2: String = "\tSaisir réponse erronée2"
     @State private var repnseErronee3: String = "\tSaisir réponse erronée3"
     @State private var source: String = "saisir votre source...(lien,video ect...)"
+    
+    @State private var themeIndex = 0
+    
+    var thème = ["Cinema","Art","Musique","Jeux","Science","Lecture","Sport","Histoire","Voyage","Nature","Star","Divers"]
+    
     var body: some View {
         VStack{
             VStack{
-                HStack{
-                    Text("theme:").font(.title)
-                    Spacer()
+               
+                NavigationView{
+                    Form {
+                        Section{
+                            Picker(selection: $themeIndex, label: Text("Thème")) {
+                                ForEach(0 ..<  thème.count) {Text(self.thème[$0]).tag($0)
+                                }
+                            }
+                        }.navigationBarTitle(Text("Thème"))
+                    }
                 }
-                
-                TextField("\tSélectionner un thème...", text: $theme).padding().border(Color.black).frame(width:340).cornerRadius(10)
-                
+              
                 Text("Image:").font(.title)}
             
             VStack{
