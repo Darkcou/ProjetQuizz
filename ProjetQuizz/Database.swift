@@ -83,6 +83,16 @@ struct ThemeLine: Identifiable {
         }
     }
     
+    func DonneTheme() -> [Theme] {
+        var themeSelect:[Theme] = []
+        for idx in 0..<themes.count {
+            if(themes[idx].isSelect == true){
+                themeSelect.append(themes[idx].type)
+            }
+        }
+        return themeSelect
+    }
+    
 }
 
 /************************ Questions ********************************************/

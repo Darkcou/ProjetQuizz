@@ -10,10 +10,62 @@
 import SwiftUI
 
 struct CreerQuestionView: View {
+    @State private var theme: String = "\tNature"
+    @State private var question: String = "\tsaisir votre question ..."
+    @State private var bonneReponse: String = "\tSaisir la bonne reponse"
+    @State private var repnseErronee1: String = "\tSaisir réponse erronée1"
+    @State private var repnseErronee2: String = "\tSaisir réponse erronée2"
+    @State private var repnseErronee3: String = "\tSaisir réponse erronée3"
+    @State private var source: String = "saisir votre source...(lien,video ect...)"
+    
+    @State private var themeIndex = 0
+    
+    var thème = ["Cinema","Art","Musique","Jeux","Science","Lecture","Sport","Histoire","Voyage","Nature","Star","Divers"]
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack{
+            VStack{
+               
+                NavigationView{
+                    Form {
+                        Section{
+                            Picker(selection: $themeIndex, label: Text("Thème")) {
+                                ForEach(0 ..<  thème.count) {Text(self.thème[$0]).tag($0)
+                                }
+                            }
+                        }.navigationBarTitle(Text("Thème"))
+                    }
+                }
+              
+                Text("Image:").font(.title)}
+            
+            VStack{
+                HStack{
+                    Text("Question:").font(.title)
+                    Spacer()}
+                TextField("\tsaisir votre question ...", text: $question).padding().border(Color.black).frame(width:340).cornerRadius(10)
+                
+                TextField("\tsaisir la bonne reponse...", text: $bonneReponse).padding().border(Color.black).frame(width:340).foregroundColor(.white).background(Color.green).cornerRadius(10)
+                
+                TextField("\tsaisir réponse erronée 1", text: $repnseErronee1).padding().border(Color.black).frame(width:340).foregroundColor(.white).background(Color.red).cornerRadius(10)
+                
+                TextField("\tsaisir réponse erronée 2", text: $repnseErronee2).padding().border(Color.black).frame(width:340).foregroundColor(.white).background(Color.red).cornerRadius(10)
+                
+                TextField("\tsaisir réponse erronée 3", text: $repnseErronee3).padding().border(Color.black).frame(width:340).foregroundColor(.white).background(Color.red).cornerRadius(10)
+            }.padding().border(Color.black).cornerRadius(10).frame(width:380,height:450)
+            
+            HStack{
+                Text("Source:").font(.title)
+            }
+            VStack{
+                TextField("\tsaisir votre source...(lien,video ect)", text: $source).padding().border(Color.black).frame(width:340).cornerRadius(10)
+            }
+        }
+        
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
