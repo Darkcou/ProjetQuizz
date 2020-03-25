@@ -11,6 +11,7 @@ import SwiftUI
 struct Questionnaire_View: View {
     
     var themeQuestion:[Theme]
+    
     @State var numQuestion:Int = 1
     @State var score:Int = 0
     
@@ -19,11 +20,43 @@ struct Questionnaire_View: View {
     @State var win:Bool = false
     
     @State var infoView = false
+    @State var scoreView = false
+
     
     var body: some View {
                
         VStack{
-            Text("Score:\(score)")
+            HStack{
+                
+                Text("Score:\(score)")
+                
+                NavigationLink(destination: Score(score: self.score), isActive: $scoreView ){
+                    EmptyView()
+                }
+                Spacer()
+                Button(
+                    action: {
+                        
+                        if self.win == true {
+                            self.score += 100
+                            self.win = false
+                        }else{}
+                        
+                        self.scoreView = true
+                    },
+                    label: {
+                        
+                        Image(systemName: "clear.fill")
+                            .resizable()
+                            .foregroundColor(.red)
+                    }
+                )
+                .frame(width:50,height:50)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .cornerRadius(10)
+
+            }.padding()
+            
             Spacer()
             Text("Question \(numQuestion)")
                 .font(.system(Font.TextStyle.largeTitle))
@@ -93,12 +126,11 @@ struct Questionnaire_View: View {
                         
                         self.score += 100
                         self.win = false
-                        self.questionPosée = question.randomElement()!
-                        
+                        self.generateQuestion()
+
                     }else{
-                        self.questionPosée = question.randomElement()!
+                        self.generateQuestion()
                     }
-                    
                     
             },
                 label: {
@@ -115,7 +147,24 @@ struct Questionnaire_View: View {
             
         }
         .navigationBarTitle("Question",displayMode: .inline)
-        
+        .onAppear(){
+            self.generateQuestion()
+        }
+        .navigationBarHidden(true)
+
+    }
+    
+    func generateQuestion() {
+        if themeQuestion.isEmpty{
+            
+            self.questionPosée = question.randomElement()!
+            
+        }else{
+            self.questionPosée = question.filter{ question in
+                self.themeQuestion.contains(question.theme)
+            }.randomElement()!
+        }
+
     }
 }
 struct ButtonStyle: View {
@@ -141,6 +190,8 @@ struct ButtonStyle: View {
         
     }
 }
+
+
 
 struct Questionnaire_View_Previews: PreviewProvider {
     static var previews: some View {
