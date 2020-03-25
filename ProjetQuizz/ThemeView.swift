@@ -14,7 +14,7 @@ struct ThemeView: View {
     @State var loginView = false
     @State var questionView = false
     @State var creerView = false
-    @State var themeSelect = 0
+    @State var nThemeSelect = 0
     @State var themeList:[ThemeLine] = ThemeList()
     func ThisColor(isSelect:Bool, t:Color = Color.white, f:Color = Color.black) -> Color {
         return isSelect == true ? t : f
@@ -80,7 +80,7 @@ struct ThemeView: View {
                 
                 VStack{
                     
-                    Text("\(themeSelect)/12 theme selectionné")
+                    Text("\(nThemeSelect)/12 theme selectionné")
                     
                     VStack{
                         themeListView()
@@ -93,11 +93,11 @@ struct ThemeView: View {
                 HStack{
                     
                     Button(action: {
-                        self.themeSelect = 0
+                        self.nThemeSelect = 0
                         for idx in 0..<self.themeList.count {
                             self.themeList[idx].AllClick()
                             
-                            self.themeSelect = self.themeSelect + self.themeList[idx].NSelect()
+                            self.nThemeSelect = self.nThemeSelect + self.themeList[idx].NSelect()
                         }
                         
                     }) {
@@ -130,13 +130,14 @@ struct ThemeView: View {
     }
     
     func themeListView() -> some View {
-        ForEach(0..<themeList.count, id: \.self){ idx in
+        self.nThemeSelect = 0
+        return ForEach(0..<themeList.count, id: \.self){ idx in
             self.subthemeListView(themeLineIdx: idx, themeLine: self.themeList[idx])
         }
     }
     
     func subthemeListView(themeLineIdx: Int, themeLine: ThemeLine) -> some View {
-        HStack {
+       return HStack {
             ForEach(0..<themeLine.themes.count, id: \.self){ idx in
                 self.themeLineView(themeLineIdx: themeLineIdx, themeSelect: themeLine.themes[idx], idx: idx)
             }
@@ -146,7 +147,13 @@ struct ThemeView: View {
     func themeLineView(themeLineIdx: Int, themeSelect: ThemeSelect, idx: Int) -> some View {
         Button(action: {
             self.toggleThemeSelection(isSelected: !themeSelect.isSelect, themeLineIdx: themeLineIdx, themeSelectIdx: idx)
-            
+            if themeSelect.isSelect != true{
+                self.nThemeSelect = self.nThemeSelect + 1
+                
+            }
+            else{
+                self.nThemeSelect = self.nThemeSelect - 1
+            }
             
         }) {
             VStack {
