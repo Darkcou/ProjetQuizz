@@ -10,108 +10,134 @@ import SwiftUI
 
 struct Questionnaire_View: View {
     
-    var numQuestion:Int = 1
-    var score:Int = 0
-    var reponsesList = [question[0].bonneReponse , question[0].mauvaiseRep1, question[0].mauvaiseRep2 , question[0].mauvaiseRep3]
+    @State var numQuestion:Int = 1
+    @State var score:Int = 0
+    
+    @State var questionPosée = question.randomElement()!
+    
     @State var win:Bool = false
+    
+    @State var infoView = false
     
     var body: some View {
         
-        VStack{
-            Text("Score:\(score)")
-            Spacer()
-            Text("Question \(numQuestion)")
-                .font(.system(Font.TextStyle.largeTitle))
-                .padding()
-
-            Spacer()
-            Text(question[0].question)
-                .font(.system(Font.TextStyle.title))
-                .bold()
-            Spacer()
+        NavigationView{
             
-             
-
-            ForEach(reponsesList.shuffled() ,id: \.self) { reponse in
-
-        
-                ButtonStyle(action: {
+            VStack{
+                Text("Score:\(score)")
+                Spacer()
+                Text("Question \(numQuestion)")
+                    .font(.system(Font.TextStyle.largeTitle))
+                    .padding()
+                
+                Spacer()
+                Text(questionPosée.sentence)
+                    .font(.system(Font.TextStyle.title))
+                    .bold()
                     
-                    // en cours de création donc pas fonctionelle
-                    print("\(question[0].bonneReponse)")
-                    if reponse == question[0].bonneReponse {
-                        self.win = true
-                        print("win")
-                    }else{
-                        self.win = false
-                        print("raté")
+                
+                Spacer()
+                
+                ForEach(questionPosée.responses.shuffled()) { reponse in
+                    
+                    
+                    ButtonStyle(action: {
+                        
+                        if reponse.isGoodResponse == true{
+                            self.win = true
+                        }else{
+                            self.win = false
+                        }
+                        
+                    }, text: reponse.sentence)
+                    
+                    
+                }
+                
+                Spacer()
+                
+                HStack{
+                    
+                    NavigationLink(destination: InformationScreen(info: questionPosée.information), isActive: $infoView ){
+                        
+                        EmptyView()
+                        
                     }
                     
-                }, text: reponse)
-
+                    Button(
+                        action: {
+                            self.infoView = true
+                            
+                    },
+                        label: {
+                            
+                            Text("En savoir plus")
+                                .bold()
+                                .foregroundColor(Color.white)
+                    }
+                    )
+                        .frame(width:150,height:50)
+                        .background(Color.gray)
+                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(10)
+                        .padding()
+                        .buttonStyle(PlainButtonStyle())
+                    
+                }
+                
+                
+                Button(
+                    action: {
+                        
+                        self.numQuestion += 1
+                        if self.win == true {
+                            
+                            self.score += 100
+                            self.win = false
+                            self.questionPosée = question.randomElement()!
+                        }else{
+                            self.questionPosée = question.randomElement()!
+                        }
+                         
+                        
+                },
+                    label: {
+                        
+                        Text("Suivant")
+                            .bold()
+                            .foregroundColor(Color.white)
+                }
+                )
+                    .frame(width:150,height:50)
+                    .background(Color.gray)
+                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(10)
                 
             }
-            
-            Spacer()
-            
-            Button(
-                action: {
-                    
-            },
-                label: {
-                    
-                    Text("En savoir plus")
-                        .bold()
-                        .foregroundColor(Color.white)
-            }
-            )
-                .frame(width:150,height:50)
-                .background(Color.blue)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                .cornerRadius(10)
-                .padding()
-            
-            
-            Button(
-                action: {
-                    
-            },
-                label: {
-                    
-                    Text("Suivant")
-                        .bold()
-                        .foregroundColor(Color.white)
-            }
-            )
-                .frame(width:150,height:50)
-                .background(Color.blue)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                .cornerRadius(10)
-            
         }
     }
 }
 struct ButtonStyle: View {
     var action: ()-> Void
     var text: String
-
+    
     var body: some View {
-                    
-            Button(
-                action: action,
-                label: {
-                    
-                    Text(self.text)
-                        .bold()
-                        .foregroundColor(Color.white)
-            }
-            )
-                .frame(width:300,height:50)
-                .background(Color.blue)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                .cornerRadius(20)
-                .padding(20)
-
+        
+        Button(
+            action: action,
+            label: {
+                
+                Text(self.text)
+                    .bold()
+                    .foregroundColor(Color.white)
+        }
+        )
+            .frame(width:300,height:50)
+            .background(Color.blue)
+            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+            .cornerRadius(20)
+            .padding(20)
+        
     }
 }
 
