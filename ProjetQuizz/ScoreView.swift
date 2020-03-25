@@ -9,23 +9,29 @@
 import SwiftUI
 
 struct Score: View {
+    
+    let score:Int
+    
+    @State var themeView = false
+
     var body: some View {
         VStack{
-            Text("Score:") // ajouter fonction score
+            
+            // Score
+            Text("Score:\(score)")
                 .font(.largeTitle)
                 .padding().frame(width:370,height:140)
                 .background(Color.blue)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .cornerRadius(10)
             
-            
             Spacer()
-                .frame(height: 13.0)
+            
+            // Badges
             VStack{
                 VStack{
                     Text("Badges:") // ajout fonction badges
                         .font(.largeTitle)}
-                Spacer()
                 HStack{
                     Image(badge[0].logo)
                     VStack{
@@ -36,21 +42,37 @@ struct Score: View {
                         Text(badge[0].description)
                     }
                 }
-                Spacer()
             }
             .padding().frame(width:370,height:430)
             .background(Color.blue)
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
             .cornerRadius(10)
+            
             Spacer()
                 .frame(height: 39.0)
-            Text("Quitter") // ajouter fonction leave
-                .font(.largeTitle)
-                .padding().frame(width:370,height:100)
-                .background(Color.red)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                .cornerRadius(10)
+            
+            // Quitter
+            NavigationLink(destination: ThemeView(), isActive: $themeView ){
+                EmptyView()
+            }
+            Button(
+                action: {
+                    self.themeView = true
+                },
+                label: {
+                    Text("Recommencer un quizz")
+                        .foregroundColor(Color.white)
+                        .font(.title)
+                }
+            )
+            .padding().frame(width:370,height:100)
+            .background(Color.red)
+            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+            .cornerRadius(10)
+            
             Spacer()
+            
+            // Game center
             Text("Connectez vous via Game center ") // ajouter fonction login
                 .font(.headline)
                 .padding().frame(width:370,height:100)
@@ -60,6 +82,8 @@ struct Score: View {
             
             
         }
+        .navigationBarHidden(true)
+
         
     }
     
@@ -68,6 +92,6 @@ struct Score: View {
 
 struct Score_Previews: PreviewProvider {
     static var previews: some View {
-        Score()
+        Score(score: 0)
     }
 }
