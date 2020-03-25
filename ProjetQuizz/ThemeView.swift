@@ -94,10 +94,11 @@ struct ThemeView: View {
                 HStack{
                     
                     Button(action: {
+                        self.themeQuestion.removeAll()
                         self.nThemeSelect = 0
                         for idx in 0..<self.themeList.count {
                             self.themeList[idx].AllClick()
-                            
+                            self.themeQuestion = self.themeQuestion + self.themeList[idx].DonneTheme()
                             self.nThemeSelect = self.nThemeSelect + self.themeList[idx].NSelect()
                         }
                         
@@ -154,9 +155,7 @@ struct ThemeView: View {
             }
             else{
                 self.nThemeSelect = self.nThemeSelect - 1
-                for idx in 0..<self.themeQuestion.count {
-                    self.themeQuestion.remove(at: idx )
-                }
+                
             }
             
         }) {
