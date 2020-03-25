@@ -155,7 +155,10 @@ struct ThemeView: View {
             }
             else{
                 self.nThemeSelect = self.nThemeSelect - 1
-                
+
+                self.themeQuestion.removeAll{ questionTheme in questionTheme
+                    == themeSelect.type }
+
             }
             
         }) {
