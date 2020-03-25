@@ -26,14 +26,17 @@ struct Questionnaire_View: View {
     var body: some View {
                
         VStack{
+            
             HStack{
                 
                 Text("Score:\(score)")
                 
+                Spacer()
+
                 NavigationLink(destination: Score(score: self.score), isActive: $scoreView ){
                     EmptyView()
                 }
-                Spacer()
+                // Quit Button
                 Button(
                     action: {
                         
@@ -55,14 +58,14 @@ struct Questionnaire_View: View {
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .cornerRadius(10)
 
-            }.padding()
+            }
+            .padding()
             
-            Spacer()
             Text("Question \(numQuestion)")
                 .font(.system(Font.TextStyle.largeTitle))
-                .padding()
             
             Spacer()
+            
             Text(questionPosée.sentence)
                 .font(.system(Font.TextStyle.title))
                 .bold()
@@ -70,6 +73,7 @@ struct Questionnaire_View: View {
             
             Spacer()
             
+            //Reponses List
             ForEach(questionPosée.responses.shuffled()) { reponse in
                 
                 
@@ -88,36 +92,32 @@ struct Questionnaire_View: View {
             
             Spacer()
             
-            HStack{
+            NavigationLink(destination: InformationScreen(info: questionPosée.information), isActive: $infoView ){
                 
-                NavigationLink(destination: InformationScreen(info: questionPosée.information), isActive: $infoView ){
-                    
-                    EmptyView()
-                    
-                }
-                
-                Button(
-                    action: {
-                        self.infoView = true
-                        
-                },
-                    label: {
-                        
-                        Text("En savoir plus")
-                            .bold()
-                            .foregroundColor(Color.white)
-                }
-                )
-                    .frame(width:150,height:50)
-                    .background(Color.gray)
-                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(10)
-                    .padding()
-                    .buttonStyle(PlainButtonStyle())
+                EmptyView()
                 
             }
+            // Info Button
+            Button(
+                action: {
+                    self.infoView = true
+                    
+            },
+                label: {
+                    
+                    Text("En savoir plus")
+                        .bold()
+                        .foregroundColor(Color.white)
+            }
+            )
+                .frame(width:150,height:50)
+                .background(Color.gray)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .cornerRadius(10)
+                .padding()
+                        
             
-            
+            // Next Button
             Button(
                 action: {
                     
@@ -140,17 +140,18 @@ struct Questionnaire_View: View {
                         .foregroundColor(Color.white)
             }
             )
+            
                 .frame(width:150,height:50)
                 .background(Color.gray)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .cornerRadius(10)
             
         }
-        .navigationBarTitle("Question",displayMode: .inline)
-        .onAppear(){
-            self.generateQuestion()
-        }
-        .navigationBarHidden(true)
+            .navigationBarTitle("")
+            .onAppear(){
+                self.generateQuestion()
+            }
+            .navigationBarHidden(true)
 
     }
     
@@ -167,6 +168,7 @@ struct Questionnaire_View: View {
 
     }
 }
+
 struct ButtonStyle: View {
     var action: ()-> Void
     var text: String

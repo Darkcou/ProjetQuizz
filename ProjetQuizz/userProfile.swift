@@ -12,53 +12,58 @@ import SwiftUI
 struct test: View {
     
     var body: some View {
-        ZStack{
+        
+            
         VStack {
-            Spacer()
-            HStack{                Image(systemName:"chevron.left").font(.largeTitle)
-                Text("retour")
-            Spacer()
-            }.foregroundColor(.black)
+        
+            Text("Profil")
+                .font(.largeTitle)
+                    
             HStack{
-                Spacer().frame(width:80)
                 Text("connecter vous via game center")
                 Image(systemName: "circle.fill")
-            }.foregroundColor(.black)
+            }
+            .foregroundColor(.black)
+            
+            // info User
             HStack{
-                Spacer().frame(width:-90)
-                Image(systemName: "person.circle.fill")
-                    .foregroundColor(.white)
-                    .scaleEffect(5)
                 
-                Spacer().frame(width:55)
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .foregroundColor(.white)
+                    .frame(width:80, height: 80)
+                
+                Spacer().frame(width:40)
                 
                 VStack{
-                    
-                    Text("PROFIL")
-                        .font(.title)
+    
                     Text("Pseudo:\(user[0].name)")
                     Text("Age:")
                     Text("Ville:")
                 }
                 
             }
-            .padding().frame(width:370,height:140)
+            .frame(width:370,height:140)
             .background(Color.blue)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
             .cornerRadius(10)
             
             Spacer()
+            
+            // Stats
             VStack{
+                
                 StatsTextView(name:"Meilleur score:")
-                Spacer().frame(height:15)
+                Spacer()
                 StatsTextView(name:"Nombre de partie:")
-                Spacer().frame(height:15)
+                Spacer()
                 StatsTextView(name:"Ratio:")
-                Spacer().frame(height:15)
+                Spacer()
                 StatsTextView(name:"Temps de jeu:")
                 Spacer()
             }
             
+            // Badges
             VStack{
                 VStack{
                     Text("Badges:")
@@ -73,17 +78,30 @@ struct test: View {
                         Text(badge[0].description)
                     }
                 }
-            }.padding().frame(width:370,height:270)
-                .background(Color.blue)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                .cornerRadius(10)
-            Spacer().frame(height:30)
-        }.foregroundColor(.white)
+            }
+            .padding()
+            .frame(width:370,height:270)
+            .background(Color.blue)
+            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+            .cornerRadius(10)
+            
+        }
+        
     }
 }
+
+struct StatsTextView : View {
+    
+    var name:String
+    var body : some View {
+        
+        Text(name)
+            .frame(width:370,height:55)
+            .background(Color.gray)
+            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+            .cornerRadius(10)
+    }
 }
-
-
  
 
 struct test_Previews: PreviewProvider {
@@ -91,15 +109,6 @@ struct test_Previews: PreviewProvider {
         test()
     }
 }
-
-struct StatsTextView : View {
-    var name:String
-    var body : some View {
-        Text(name).padding().frame(width:370,height:55).background(Color.gray).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/).cornerRadius(10)
-    }
-}
-
- 
 
 /*Text("Temps de jeu:")
     .padding()

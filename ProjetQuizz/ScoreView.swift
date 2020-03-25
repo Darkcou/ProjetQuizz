@@ -49,7 +49,6 @@ struct Score: View {
             .cornerRadius(10)
             
             Spacer()
-                .frame(height: 39.0)
             
             // Quitter
             NavigationLink(destination: ThemeView(), isActive: $themeView ){
@@ -73,7 +72,7 @@ struct Score: View {
             Spacer()
             
             // Game center
-            Text("Connectez vous via Game center ") // ajouter fonction login
+            Text("Connectez vous via Game center ")
                 .font(.headline)
                 .padding().frame(width:370,height:100)
                 .background(Color.gray)
@@ -82,6 +81,7 @@ struct Score: View {
             
             
         }
+        .navigationBarTitle("")
         .navigationBarHidden(true)
 
         
