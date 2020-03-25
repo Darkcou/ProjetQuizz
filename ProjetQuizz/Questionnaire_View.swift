@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Questionnaire_View: View {
     
+    var themeQuestion:[Theme]
     @State var numQuestion:Int = 1
     @State var score:Int = 0
     
@@ -20,7 +21,7 @@ struct Questionnaire_View: View {
     @State var infoView = false
     
     var body: some View {
-                    
+               
         VStack{
             Text("Score:\(score)")
             Spacer()
@@ -143,6 +144,6 @@ struct ButtonStyle: View {
 
 struct Questionnaire_View_Previews: PreviewProvider {
     static var previews: some View {
-        Questionnaire_View()
+        Questionnaire_View(themeQuestion:[.nature])
     }
 }

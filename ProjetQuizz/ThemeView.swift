@@ -16,7 +16,7 @@ struct ThemeView: View {
     @State var creerView = false
     @State var nThemeSelect = 0
     @State var themeList:[ThemeLine] = ThemeList()
-    @State var infoQuestion:[Theme]=[]
+    @State var themeQuestion:[Theme]=[]
     func ThisColor(isSelect:Bool, t:Color = Color.white, f:Color = Color.black) -> Color {
         return isSelect == true ? t : f
     }
@@ -115,7 +115,7 @@ struct ThemeView: View {
                     
                     
                     Spacer().frame(width: 100)
-                    NavigationLink(destination: Questionnaire_View(), isActive: $questionView ){EmptyView()}
+                    NavigationLink(destination: Questionnaire_View(themeQuestion: self.themeQuestion), isActive: $questionView ){EmptyView()}
                     
                     Button(action: {
                         self.questionView = true
@@ -150,12 +150,12 @@ struct ThemeView: View {
             self.toggleThemeSelection(isSelected: !themeSelect.isSelect, themeLineIdx: themeLineIdx, themeSelectIdx: idx)
             if themeSelect.isSelect != true{
                 self.nThemeSelect = self.nThemeSelect + 1
-                self.infoQuestion.append(themeSelect.type)
+                self.themeQuestion.append(themeSelect.type)
             }
             else{
                 self.nThemeSelect = self.nThemeSelect - 1
-                for idx in 0..<self.infoQuestion.count {
-                    self.infoQuestion.remove(at: idx )
+                for idx in 0..<self.themeQuestion.count {
+                    self.themeQuestion.remove(at: idx )
                 }
             }
             
