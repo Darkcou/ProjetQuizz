@@ -126,7 +126,7 @@ struct ThemeView: View {
                     }.buttonStyle(PlainButtonStyle())
                 }
                 
-            }
+            }.navigationBarTitle("Selectionner les thèmes",displayMode: .inline)
         }
         
     }
