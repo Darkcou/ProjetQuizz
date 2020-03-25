@@ -23,7 +23,7 @@ struct ThemeView: View {
     var body: some View {
         
         NavigationView{
-            
+ 
             VStack{
                 
                 VStack{
@@ -125,7 +125,7 @@ struct ThemeView: View {
                 }
                 
             }
-        }.navigationBarTitle("Incroyable QI")
+        }
         
     }
     
@@ -157,7 +157,7 @@ struct ThemeView: View {
             
         }) {
             VStack {
-                Image(themeSelect.name).resizable().frame(width:65, height: 65)
+                Image(themeSelect.name).resizable().renderingMode(.original).frame(width:65, height: 65)
                 Text(themeSelect.name)
                     .font(.footnote)
                     .foregroundColor(self.ThisColor(isSelect: themeSelect.isSelect))
