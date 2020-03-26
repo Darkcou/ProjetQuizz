@@ -181,7 +181,7 @@ let question : [Questions] = [
         Response(sentence: "Placebo", isGoodResponse: false),
         Response(sentence: "Les Beatles", isGoodResponse: false)
     ], theme: .musique, information:
-            Informations(image: "",
+            Informations(image: "indochine.jpeg",
                          text: "indochine - le troisième sexe",
                          lien: "")),
     
@@ -192,7 +192,7 @@ let question : [Questions] = [
         Response(sentence: "Le cubisme", isGoodResponse: false),
         Response(sentence: "L'impressionisme", isGoodResponse: false)
     ], theme: .art, information:
-            Informations(image: "indochine.jpeg",
+            Informations(image: "Dali.jpeg",
                          text: "Le surréalisme est un mouvement littéraire et artistique né après la Première Guerre mondiale ; ce mouvement succède au dadaïsme. Le mouvement, défini par André Breton dans le Manifeste du surréalisme publié en 1924, repose sur le refus de toutes les constructions logiques de l’esprit et sur les valeurs de l’irrationnel, de l’absurde, du rêve, du désir et de la révolte.",
                          lien: "https://www.etudes-litteraires.com/surrealisme.php")),
     
