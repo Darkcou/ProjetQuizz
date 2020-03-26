@@ -17,6 +17,30 @@ struct Questionnaire_View: View {
     
     @State var questionPosée = question.randomElement()!
     
+    @State var colorButton = Color.white
+    @State var colorNext = Color.gray
+
+    
+    func validationColor(reponse:Response){
+        
+        if reponse.isGoodResponse == true{
+            
+            self.colorButton = Color.green
+            self.colorNext = Color.blue
+            self.win = true
+
+            
+        }else{
+            self.colorButton = Color.red
+            self.colorNext = Color.blue
+            self.win = false
+
+
+        }
+    }
+
+
+    
     @State var win:Bool = false
     
     @State var infoView = false
@@ -79,13 +103,9 @@ struct Questionnaire_View: View {
                 
                 ButtonStyle(action: {
                     
-                    if reponse.isGoodResponse == true{
-                        self.win = true
-                    }else{
-                        self.win = false
-                    }
+                    self.validationColor(reponse: reponse)
                     
-                }, text: reponse.sentence)
+                }, text: reponse.sentence).background(self.colorButton)
                 
                 
             }
@@ -111,7 +131,7 @@ struct Questionnaire_View: View {
             }
             )
                 .frame(width:150,height:50)
-                .background(Color.gray)
+                .background(self.colorNext)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .cornerRadius(10)
                 .padding()
@@ -142,7 +162,7 @@ struct Questionnaire_View: View {
             )
             
                 .frame(width:150,height:50)
-                .background(Color.gray)
+                .background(self.colorNext)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .cornerRadius(10)
             
@@ -151,16 +171,26 @@ struct Questionnaire_View: View {
             .onAppear(){
                 self.generateQuestion()
             }
-            .navigationBarHidden(true)
+//            .navigationBarHidden(true)
+            .background(self.colorButton)
 
     }
     
     func generateQuestion() {
         if themeQuestion.isEmpty{
             
+            self.colorButton = Color.white
+            self.colorNext = Color.gray
+
+
             self.questionPosée = question.randomElement()!
             
         }else{
+            
+            self.colorButton = Color.white
+            self.colorNext = Color.gray
+
+
             self.questionPosée = question.filter{ question in
                 self.themeQuestion.contains(question.theme)
             }.randomElement()!
