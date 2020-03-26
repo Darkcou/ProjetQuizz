@@ -59,7 +59,7 @@ struct Score: View {
                     self.themeView = true
                 },
                 label: {
-                    Text("Recommencer un quizz")
+                    Text("Quitter")
                         .foregroundColor(Color.white)
                         .font(.title)
                 }

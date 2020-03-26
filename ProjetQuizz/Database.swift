@@ -193,8 +193,8 @@ let question : [Questions] = [
         Response(sentence: "L'impressionisme", isGoodResponse: false)
     ], theme: .art, information:
             Informations(image: "indochine.jpeg",
-                         text: "le surréalisme",
-                         lien: "")),
+                         text: "Le surréalisme est un mouvement littéraire et artistique né après la Première Guerre mondiale ; ce mouvement succède au dadaïsme. Le mouvement, défini par André Breton dans le Manifeste du surréalisme publié en 1924, repose sur le refus de toutes les constructions logiques de l’esprit et sur les valeurs de l’irrationnel, de l’absurde, du rêve, du désir et de la révolte.",
+                         lien: "https://www.etudes-litteraires.com/surrealisme.php")),
     
     Questions(sentence: "Comment appelle-t-on au Canada l'objet plat et rond servant de balle au hockey sur glace ?", responses: [
 
@@ -205,7 +205,7 @@ let question : [Questions] = [
     ], theme: .sport, information:
             Informations(image: "hockey.jpeg",
                          text: "La rondelle au Canada, Le puck en  en anglais et Le palet en France",
-                         lien: "")),
+                         lien: "https://fr.wikipedia.org/wiki/Hockey_sur_glace")),
     
     Questions(sentence: "Quelle religieuse a reçu le prix Nobel de la paix en 1979 ?", responses: [
 
@@ -215,8 +215,8 @@ let question : [Questions] = [
         Response(sentence: "Sœur Marie-Odile", isGoodResponse: false)
     ], theme: .star, information:
             Informations(image: "theresa.jpeg",
-                         text: "",
-                         lien: "")),
+                         text: "Mère Teresa en aura en effet épaté plus d'un. Sa vie, sa vocation et son oeuvre parlent pour elle. Parce qu'elle avait reçu, comme un ordre divin, l'appel à se mettre, dans les bidonvilles de Calcutta, au service des misérables et des sans-abris, elle avait quitté, à presque 40 ans, le confort de son monastère. Jusqu'à la fin de ses jours, elle vécut au milieu des sans-abris et des mourants, fondant au fil des années et dans divers pays, des maisons d'accueil pour les plus déshérités.",
+                         lien: "https://fr.wikipedia.org/wiki/Mère_Teresa")),
     
     Questions(sentence: "Quel alcool au nom germanique est extrait des cerises ou des merises ?", responses: [
 
@@ -226,8 +226,8 @@ let question : [Questions] = [
         Response(sentence: "Le Heineken", isGoodResponse: false)
     ], theme: .divers, information:
             Informations(image: "merises.jpeg",
-                         text: "",
-                         lien: "")),
+                         text: "Les alcools blancs obtenus par distillation de fruits sont très populaires en Allemagne, en Autriche, en Belgique germanophone, au Luxembourg, en France (Alsace, Franche-Comté, Lorraine, Pays de Savoie, Périgord) et en Suisse. Dans les pays et régions germanophones il est considéré comme une forme de schnaps. Le schnaps est l'eau-de-vie obtenue par la distillation de plusieurs fruits. Le kirsch peut être utilisé pour la préparation de la fondue au fromage.",
+                         lien: "https://fr.wikipedia.org/wiki/Kirsch")),
     
     Questions(sentence: "Quel inspecteur de police poursuit Jean Valjean dans \"Les Misérables\" ?", responses: [
 
@@ -237,8 +237,8 @@ let question : [Questions] = [
         Response(sentence: "Starsky", isGoodResponse: false)
     ], theme: .lecture, information:
             Informations(image: "miserables.jpeg",
-                         text: "",
-                         lien: "https://fr.wikipedia.org/wiki/Les_Misérables")),
+                         text: "Hugo écrit ce roman sur 17 années, en deux fois diamétralement opposées, à deux moments presque opposés de son évolution personnelle et politique. La première fois, en 1845, il a 43 ans et le livre s’appelle alors Les Misères. Au sommet de sa carrière, académicien, mondain, reçu par le Roi, Hugo est honoré partout. Il vient d’être nommé Pair de France, l’équivalent d’un sénateur, dans le parti de l’ordre, conservateur. Mais il est pris en flagrant délit d’adultère. Sa réputation ternie, le roi lui demande de se faire oublier quelques temps. Dans son bureau de la Place des Vosges, il s’isole et écrit, frénétiquement, sa réponse à la Comédie humaine de Balzac à partir du destin d’un forçat libéré du bagne, Jean Valjean. Jean-Marc Hovasse : Hugo déplace les horaires de repas, il travaille énormément, le matin, l’après-midi, le soir. Il s’enferme dans son roman. Sa documentation, c’est là où c’est troublant, il l’a accumulée depuis des années. Habité par la question sociale depuis longtemps, Hugo fait appel à ses anciennes visites de prisons, de bagnes, d’usines, de villes comme Montfermeil, de rencontres avec des ouvrières, pour écrire au plus près du réel, de la misère. Mais alors qu’il a écrit les trois quarts du récit, survient la révolution de 1848, Hugo arrête tout pour se consacrer à la politique. Élu à l’Assemblée nationale, il tient de grands discours sur le prolétariat, la liberté de la presse, l’éducation... qu’il déclinera plus tard dans son roman.",
+                         lien: "https://www.franceculture.fr/litterature/comment-victor-hugo-a-ecrit-les-miserables")),
     
     Questions(sentence: "Quelle planète a été déchue de son rang le 24 août 2006 ?", responses: [
 
@@ -248,8 +248,8 @@ let question : [Questions] = [
         Response(sentence: "Amalthée", isGoodResponse: false)
     ], theme: .science, information:
             Informations(image: "pluton.jpeg",
-                         text: "",
-                         lien: "")),
+                         text: "L’Union astronomique internationale, réunie le 24 août 2006 à Prague, a déchu Pluton de son rang de planète en raison du redéfinition de ce qu'est une planète et désavoué les experts qui voulaient élargir le nombre de planètes du système solaire à douze en y intégrant des planètes naines comme Cérès, Xena ou Charon. Découverte en 1930, Pluton diffère par plusieurs aspects des huit autres planètes du système solaire : elle est formée de glace là où les autres sont rocheuses ou gazeuses ; elle suit en outre une orbite très longue et très excentrée, et met 247 ans pour effectuer une révolution. Elle est en outre très petite (2 300 kilomètres de diamètre), plus petite même que notre bonne vieille Lune. Aujourd’hui, cette décision fait toujours polémique au sein de la communauté scientifique. Dans une étude américaine publiée dans la revue Icarus en août 2018, des chercheurs suggèrent de revoir la définition des planètes. Il faut rappeler au passage que Pluton est un symbole important aux Etats-Unis : c’est la seule planète découverte par un Américain.",
+                         lien: "https://www.planete-astronomie.eu/planete-naine-pluton.html")),
 
 ]
 

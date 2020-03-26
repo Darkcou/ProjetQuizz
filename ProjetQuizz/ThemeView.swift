@@ -74,7 +74,7 @@ struct ThemeView: View {
                         
                     }
                     
-                    Text("Sélectionner un ou plusieurs themes !").foregroundColor(Color.white)
+                    Text("Tester votre Qi :Quizz intelligence").foregroundColor(Color.white)
                 }.background(Color.blue).cornerRadius(10)
                 
                 Spacer().frame(height:30)
